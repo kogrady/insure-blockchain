@@ -5,10 +5,20 @@ import Components from './components/components';
 import AppComponent from './app.component';
 import 'normalize.css';
 
+/**
+ * Author: Stephan McLean
+ * Date: 10th May 2017
+ *
+ * Add angular-ui-bootstrap
+ */
+import 'bootstrap/dist/css/bootstrap.css';
+import uiBootstrap from 'angular-ui-bootstrap';
+
 angular.module('app', [
     uiRouter,
     Common,
-    Components
+    Components,
+    uiBootstrap
   ])
   .config(($locationProvider) => {
     "ngInject";

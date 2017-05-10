@@ -2,9 +2,14 @@ var path    = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
+var root = 'client';
+
 module.exports = {
   devtool: 'source-map',
-  entry: {},
+  entry: [
+    'babel-polyfill',
+    path.join(__dirname, root, 'app/app.js')
+  ],
   module: {
     loaders: [
        { test: /\.js$/, exclude: [/app\/lib/, /node_modules/], loader: 'ng-annotate!babel' },

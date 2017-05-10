@@ -54,11 +54,8 @@
   "scripts": {
     "build": "gulp webpack",
     "component": "gulp component",
-    "serve": "gulp serve",
-    "start": "gulp serve",
-    "test": "karma start",
-    "watch": "gulp serve",
-    "webpack": "gulp webpack"
+    "webpack": "gulp webpack",
+    "watch" : "gulp clean && webpack --config webpack.dist.config --watch"
   },
   "keywords": [
     "angular",

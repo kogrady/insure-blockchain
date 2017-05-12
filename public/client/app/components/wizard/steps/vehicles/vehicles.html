@@ -1,5 +1,134 @@
 <div>
-  VEHICLES STEP
+
+
+  <!-- Tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+
+    <li ng-repeat="vehicle in $ctrl.vehicles"
+        data-toggle="tab"
+        role="presentation"
+        ng-class="{'active' : $ctrl.activeTab === $index}">
+
+      <a href="#" ng-click="$ctrl.activeTab = $index;">
+        {{$ctrl.getVehicleDisplayName(vehicle)}}
+
+        <i class="glyphicon glyphicon-trash" ng-if="$index > 0" ng-click="$ctrl.removeVehicle(vehicle)">
+        </i>
+
+      </a>
+
+    </li>
+
+    <li role="presentation" ng-click="$ctrl.addVehicle()">
+      <a href="#"><i class="glyphicon glyphicon-plus"></i></a>
+    </li>
+  </ul>
+
+  <!-- Content -->
+  <div class="tab-content" ng-repeat="vehicle in $ctrl.vehicles">
+
+    <div role="tabpanel" class="tab-pane" ng-class="{'active' : $ctrl.activeTab === $index}">
+
+      <form class="form-horizontal" name="vehicleForm">
+
+        <!-- Make -->
+        <div class="form-group">
+
+          <label for="vehicleMake{{$index}}" class="col-sm-2 control-label">Make</label>
+          <div class="col-sm-10">
+            <input
+              ng-model="vehicle.make"
+              required
+              id="vehicleMake{{$index}}"
+              type="text" class="form-control"
+              placeholder="Make">
+          </div>
+
+        </div>
+
+        <!-- Model -->
+        <div class="form-group">
+
+          <label for="vehicleModel{{$index}}" class="col-sm-2 control-label">Model</label>
+          <div class="col-sm-10">
+            <input
+              ng-model="vehicle.model"
+              required
+              id="vehicleModel{{$index}}"
+              type="text" class="form-control"
+              placeholder="Model">
+          </div>
+
+        </div>
+
+        <!-- Year -->
+        <div class="form-group">
+          <label for="vehicleYear{{$index}}" class="col-sm-2 control-label">Year</label>
+          <div class="col-sm-10">
+            <input
+              ng-model="vehicle.year"
+              required
+              id="vehicleYear{{$index}}"
+              type="text" class="form-control"
+              placeholder="Year">
+          </div>
+        </div>
+
+        <!-- Driver -->
+        <div class="btn-group" uib-dropdown is-open="status.isopen">
+
+          <button id="single-button" type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">
+            Add Driver <span class="caret"></span>
+          </button>
+
+          <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+
+            <li role="menuitem" ng-repeat="driver in $ctrl.getDrivers(vehicle)">
+              <a href="#" ng-click="$ctrl.addDriver(vehicle, driver)">{{driver.displayName}}</a>
+            </li>
+
+            <li role="menuitem">
+              <a href="#" ng-click="$ctrl.addNewDriver(vehicle)">New Driver</a>
+            </li>
+
+          </ul>
+        </div>
+
+        <table ng-if="vehicle.drivers.length" class="table">
+
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Driving Percentage</th>
+              <th>Remove</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr ng-repeat="driver in vehicle.drivers">
+
+              <td>
+                {{driver.displayName}}
+              </td>
+
+              <td>
+                {{driver.percent}}%
+              </td>
+
+              <td>
+                <i class="glyphicon glyphicon-trash" ng-click="$ctrl.removeDriver(vehicle, driver)"></i>
+              </td>
+
+            </tr>
+          </tbody>
+
+        </table>
+
+      </form>
+
+    </div>
+
+  </div>
 
   <action-buttons></action-buttons>
 </div>

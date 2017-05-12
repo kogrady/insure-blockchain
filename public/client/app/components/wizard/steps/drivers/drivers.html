@@ -1,5 +1,69 @@
 <div>
-  DRIVERS STEP
+
+  <!-- Tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+
+    <li ng-repeat="driver in $ctrl.drivers"
+        data-toggle="tab"
+        role="presentation"
+        ng-class="{'active' : $ctrl.activeTab === $index}">
+
+      <a href="#" ng-click="$ctrl.activeTab = $index;">
+        {{$ctrl.getDriverName(driver)}}
+        <i class="glyphicon glyphicon-trash"
+           ng-click="$ctrl.removeDriver(driver)"
+           ng-if="$ctrl.canRemoveDriver(driver)"></i>
+      </a>
+
+    </li>
+
+    <li role="presentation" ng-click="$ctrl.addDriver()">
+      <a href="#"><i class="glyphicon glyphicon-plus"></i></a>
+    </li>
+  </ul>
+
+  <!-- Content -->
+  <div class="tab-content" ng-repeat="driver in $ctrl.drivers">
+
+    <div role="tabpanel" class="tab-pane" ng-class="{'active' : $ctrl.activeTab === $index}">
+
+      <form class="form-horizontal" name="driverForm">
+
+        <!-- First Name -->
+        <div class="form-group">
+
+          <label for="driverFirst{{$index}}" class="col-sm-2 control-label">First Name</label>
+          <div class="col-sm-10">
+            <input
+              ng-model="driver.first"
+              required
+              id="driverFirst{{$index}}"
+              type="text" class="form-control"
+              placeholder="First Name">
+          </div>
+
+        </div>
+
+        <!-- Last Name -->
+        <div class="form-group">
+
+          <label for="driverLast{{$index}}" class="col-sm-2 control-label">Last Name</label>
+          <div class="col-sm-10">
+            <input
+              ng-model="driver.last"
+              required
+              id="driverLast{{$index}}"
+              type="text" class="form-control"
+              placeholder="Last Name">
+          </div>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
 
   <action-buttons></action-buttons>
 </div>

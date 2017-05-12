@@ -18,7 +18,10 @@ let stepsModule = angular.module('wizard.steps', [
         component: 'drivers',
         next: 'vehicles',
         label: 'Drivers',
-        index: 0
+        index: 0,
+        params: {
+          driverToEdit : null
+        }
       })
       .state('vehicles', {
         url: '/vehicles',

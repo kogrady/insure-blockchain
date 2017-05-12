@@ -1,0 +1,15 @@
+<ol class="breadcrumb">
+
+  <li ng-repeat="step in $ctrl.steps | orderBy: 'index'" ng-class="{active : $ctrl.isCurrentStep(step)}">
+
+    <a ng-if="$ctrl.canVisitStep(step)" href="#" ui-sref="{{step.name}}">
+      {{step.label}}
+    </a>
+
+    <span ng-if="!$ctrl.canVisitStep(step)">
+      {{step.label}}
+    </span>
+
+  </li>
+
+</ol>

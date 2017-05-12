@@ -1,0 +1,25 @@
+<main>
+  <div class="row">
+
+    <!-- Fixed sidebar -->
+    <div class="col-md-3 col-md-offset-1">
+      <div class="affix">
+        New Quote
+      </div>
+    </div>
+
+    <div class="col-md-6">
+
+      <wizard-trail></wizard-trail>
+
+      <!-- Page Title -->
+      <h1>
+        New Quote: {{$ctrl.quote.quoteID}}
+      </h1>
+
+      <ui-view></ui-view>
+
+    </div>
+
+  </div>
+</main>

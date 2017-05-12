@@ -1,5 +1,60 @@
 <main>
-  <div>
-    <h1>Found in {{ $ctrl.name }}.html</h1>
+  <div class="row">
+
+    <div class="col-md-6 col-md-offset-3">
+
+      <!-- Page Title -->
+      <h1>
+        Start A Quote
+      </h1>
+
+      <!-- Form -->
+      <form name="userForm">
+
+        <!-- First Name -->
+        <div class="form-group">
+
+          <input
+            ng-model="$ctrl.user.first"
+            required
+            ng-change="$ctrl.userChanged()"
+            type="text" class="form-control"
+            placeholder="First Name">
+
+        </div>
+
+        <!-- Last Name -->
+        <div class="form-group">
+
+          <input
+            ng-model="$ctrl.user.last"
+            ng-change="$ctrl.userChanged()"
+            required
+            type="text" class="form-control"
+            placeholder="Last Name">
+
+        </div>
+
+        <!-- Username -->
+        <div class="form-group">
+          <input
+            ng-model="$ctrl.user.username"
+            required
+            type="text"
+            class="form-control"
+            placeholder="Username">
+        </div>
+
+        <button type="button"
+                class="btn btn-primary btn-lg btn-block"
+                ng-disabled="!userForm.$valid"
+                ng-click="$ctrl.startQuote()">
+          Start Quote
+        </button>
+
+      </form>
+
+    </div>
+
   </div>
 </main>

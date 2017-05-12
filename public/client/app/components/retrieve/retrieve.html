@@ -1,0 +1,37 @@
+<main>
+  <div class="row">
+
+    <div class="col-md-6 col-md-offset-3">
+
+      <!-- Page Title -->
+      <h1>
+        Retrieve A Quote
+      </h1>
+
+      <!-- Form -->
+      <form name="retrieveForm">
+
+        <!-- Quote ID -->
+        <div class="form-group">
+
+          <input
+            ng-model="$ctrl.quoteID"
+            required
+            type="text" class="form-control"
+            placeholder="Quote ID">
+
+        </div>
+
+        <button type="button"
+                class="btn btn-primary btn-lg btn-block"
+                ng-disabled="!retrieveForm.$valid"
+                ng-click="$ctrl.getQuote()">
+          Retrieve Quote
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+</main>

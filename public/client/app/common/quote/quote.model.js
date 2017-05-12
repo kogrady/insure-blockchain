@@ -12,8 +12,6 @@ class QuoteModel {
         return new ContactModel(contact);
       });
 
-      console.log('set up contacts', this.contacts);
-
       /**
        * Link contacts
        */

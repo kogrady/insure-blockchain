@@ -14,6 +14,14 @@ import 'normalize.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import uiBootstrap from 'angular-ui-bootstrap';
 
+/**
+ * Author: Stephan McLean
+ * Date: 12th May 2017
+ *
+ * Add Font Awesome
+ */
+import 'font-awesome/css/font-awesome.css';
+
 angular.module('app', [
     uiRouter,
     Common,
